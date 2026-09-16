@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gelateria Angelato — Gelato artesanal italiano em São Bernardo do Campo</title>
+<meta name="description" content="Gelato artesanal italiano, sobremesas premium, açaí e bolos de gelato em São Bernardo do Campo. Monte seu pedido no site e envie pelo WhatsApp.">
+<meta name="theme-color" content="#224371">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap">
+<link rel="preload" as="image" href="assets/img/fundo-chocolate.webp" media="(min-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/fundo-chocolate-m.webp" media="(max-width: 699px)" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/estilo.css?v=22">
+<script>document.documentElement.classList.add('js')</script>
+<!-- SITE DE DEMONSTRAÇÃO (V2, redesign 15/09/2026). Tudo marcado como
+     PLACEHOLDER (aqui e em assets/js/catalogo.js) é dado fictício — ver
+     PENDENTES.md. Referências de direção: Alfredo (blocos de cor, nome
+     monumental), Mr. Pops (hero que encolhe + marquee), Luccianos (colagem
+     sobreposta, espaço). -->
+</head>
+<body>
+<a class="pular" href="#main">Pular para o conteúdo</a>
+
+<!-- ====================================================== topo -->
+<header class="topo" data-rolado="false">
+  <div class="container topo__interno">
+    <button class="hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="marca" href="#inicio" aria-label="Gelateria Angelato — início">
+      <img class="marca__icone" src="assets/img/icone-branco.png" alt="" width="169" height="109">
+      <span class="marca__nome">Angelato</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#sabores">Sabores</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#sobre">A casa</a>
+      <a href="#contato">Onde estamos</a>
+    </nav>
+    <button class="carrinho-botao" type="button" aria-label="Abrir seu pedido" data-abrir-carrinho data-vazio="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="carrinho-botao__contagem" data-carrinho-contagem aria-live="polite">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" data-aberto="false">
+  <div class="menu__topo">
+    <span class="marca__nome">Angelato</span>
+    <button class="menu__fechar" type="button" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Menu">
+    <a href="#sabores">Sabores</a>
+    <a href="#cardapio">Cardápio</a>
+    <a href="#sobre">A casa</a>
+    <a href="#contato">Onde estamos</a>
+  </nav>
+  <a class="btn btn--zap btn--bloco" href="https://wa.me/551125347781?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+</div>
+
+<main id="main" tabindex="-1">
+<span id="inicio"></span>
+
+  <!-- ========================================================== hero
+       Trilho de 170vh com palco sticky. Sem JS por frame: a foto encolhe
+       até virar um card e o marquee aparece via CSS scroll-driven
+       (animation-timeline). Navegador sem suporte → hero estático de 100vh. -->
+  <section class="hero" aria-label="Gelateria Angelato">
+    <div class="hero__palco">
+      <ul class="hero__micro" aria-label="Sobre a casa">
+        <li>Feito na casa, todo dia</li>
+        <li>Receita italiana, fruta de verdade</li>
+        <li>Centro · São Bernardo do Campo</li>
+      </ul>
+
+      <div class="hero__marquee" aria-hidden="true">
+        <div class="hero__marquee-faixa">
+          <span>Gelato artesanal italiano · Feito na casa · Mais de 50 sabores · Entrega gelada em SBC · Diferente de tudo que você já provou · </span><span>Gelato artesanal italiano · Feito na casa · Mais de 50 sabores · Entrega gelada em SBC · Diferente de tudo que você já provou · </span>
+        </div>
+      </div>
+
+      <div class="hero__foto" data-hero-fotos>
+        <!-- PLACEHOLDER: fotos geradas por IA; trocar por fotos reais do balcão -->
+        <picture class="hero__img ativa" data-sabor="chocolate">
+          <source media="(max-width: 699px)" srcset="assets/img/fundo-chocolate-m.webp">
+          <img src="assets/img/fundo-chocolate.webp" width="1920" height="1085" alt="Casquinha de gelato de chocolate sobre uma superfície de gelato de chocolate" fetchpriority="high" decoding="async">
+        </picture>
+        <picture class="hero__img" data-sabor="morango">
+          <source media="(max-width: 699px)" srcset="assets/img/fundo-morango-m.webp">
+          <img src="assets/img/fundo-morango.webp" width="1920" height="1085" alt="" loading="lazy" decoding="async">
+        </picture>
+        <picture class="hero__img" data-sabor="pistache">
+          <source media="(max-width: 699px)" srcset="assets/img/fundo-pistache-m.webp">
+          <img src="assets/img/fundo-pistache.webp" width="1920" height="1071" alt="" loading="lazy" decoding="async">
+        </picture>
+        <picture class="hero__img" data-sabor="amora">
+          <source media="(max-width: 699px)" srcset="assets/img/fundo-amora-m.webp">
+          <img src="assets/img/fundo-amora.webp" width="1920" height="1085" alt="" loading="lazy" decoding="async">
+        </picture>
+        <picture class="hero__img" data-sabor="maracuja">
+          <source media="(max-width: 699px)" srcset="assets/img/fundo-maracuja-m.webp">
+          <img src="assets/img/fundo-maracuja.webp" width="1920" height="1071" alt="" loading="lazy" decoding="async">
+        </picture>
+        <div class="hero__veu" aria-hidden="true"></div>
+      </div>
+
+      <p class="hero__frase">Finalmente, o gelato que faz jus ao calor do ABC.</p>
+      <h1 class="hero__nome" aria-label="Angelato"><span aria-hidden="true">Angelato</span></h1>
+
+      <a class="hero__cta" href="#cardapio">
+        <span>Ver o cardápio</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================== manifesto (bloco azul) -->
+  <section class="manifesto" id="manifesto">
+    <div class="container">
+      <p class="manifesto__texto reveal">
+        <span>A <strong>Angelato</strong> é uma gelateria de bairro que faz gelato do jeito italiano: <strong>todo dia</strong>, em pequenas quantidades, com <strong>leite fresco</strong> e fruta de verdade. Sem mistura pronta, sem atalho. Diferente de tudo que você já provou.</span>
+      </p>
+
+      <ol class="pilares reveal" aria-label="O que nos torna diferentes">
+        <li class="pilar">
+          <span class="pilar__num">01</span>
+          <div><h2>Sabores de verdade</h2><p>Mais de 50 sabores no balcão, mudando com a estação. Do pistache torrado na casa ao maracujá com semente.</p></div>
+          <svg class="pilar__icone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20h16l-8 22z"/><circle cx="24" cy="15" r="7"/><circle cx="17" cy="11" r="5"/><circle cx="31" cy="11" r="5"/></svg>
+        </li>
+        <li class="pilar">
+          <span class="pilar__num">02</span>
+          <div><h2>Feito na casa</h2><p>A produção é aqui mesmo, atrás do balcão. Você vê o gelato sendo feito e prova o que saiu hoje.</p></div>
+          <svg class="pilar__icone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20h28l-3 20H13z"/><path d="M14 20c0-6 4-10 10-10s10 4 10 10"/><path d="M19 27c2 2 8 2 10 0"/></svg>
+        </li>
+        <li class="pilar">
+          <span class="pilar__num">03</span>
+          <div><h2>Chega gelado</h2><p>Entrega em até 5 km com embalagem térmica, ou retirada na loja sem taxa. Pedido pelo WhatsApp, sem app no meio.</p></div>
+          <svg class="pilar__icone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h22v18H6z"/><path d="M28 20h8l6 6v6h-14z"/><circle cx="13" cy="35" r="3"/><circle cx="35" cy="35" r="3"/></svg>
+        </li>
+        <li class="pilar">
+          <span class="pilar__num">04</span>
+          <div><h2>Pra festa também</h2><p>Bolo de gelato, caixa de cassatas e o carrinho de gelato pra levar a Angelato até o seu evento.</p></div>
+          <svg class="pilar__icone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22h32v16H8z"/><path d="M8 22c4-6 10-8 16-8s12 2 16 8"/><path d="M24 8v6"/><circle cx="24" cy="6" r="2"/></svg>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================== sabores -->
+  <section class="sabores" id="sabores">
+    <div class="container sabores__cabeca">
+      <h2 class="monumental">Escolha <em>seu</em> sabor</h2>
+      <p class="sabores__lead">Cinco estrelas do balcão, prontas pra ir no pote. Toque num sabor pra montar o seu pedido.<span class="demo-tag" title="Fotos e descrições fictícias da demo">ilustrativo</span></p>
+    </div>
+
+    <!-- faixa horizontal com rolagem; cones transparentes sobre a cor do sabor -->
+    <div class="cones" role="list">
+      <button class="cone" role="listitem" type="button" style="--tom:91,58,36" data-venda="pote-800" aria-label="Chocolate belga — montar um pote">
+        <img src="assets/img/cone-chocolate.webp" width="1000" height="1250" alt="" loading="lazy" decoding="async">
+        <span class="cone__nome">Chocolate<small>belga 70%</small></span>
+      </button>
+      <button class="cone" role="listitem" type="button" style="--tom:198,90,122" data-venda="pote-800" aria-label="Morango — montar um pote">
+        <img src="assets/img/cone-morango.webp" width="1000" height="1250" alt="" loading="lazy" decoding="async">
+        <span class="cone__nome">Morango<small>da estação</small></span>
+      </button>
+      <button class="cone" role="listitem" type="button" style="--tom:141,158,98" data-venda="pote-800" aria-label="Pistache — montar um pote">
+        <img src="assets/img/cone-pistache.webp" width="1000" height="1250" alt="" loading="lazy" decoding="async">
+        <span class="cone__nome">Pistache<small>torrado na casa</small></span>
+      </button>
+      <button class="cone" role="listitem" type="button" style="--tom:107,84,150" data-venda="pote-800" aria-label="Amora — montar um pote">
+        <img src="assets/img/cone-amora.webp" width="1000" height="1250" alt="" loading="lazy" decoding="async">
+        <span class="cone__nome">Amora<small>sorbet cremoso</small></span>
+      </button>
+      <button class="cone" role="listitem" type="button" style="--tom:214,158,58" data-venda="pote-800" aria-label="Maracujá — montar um pote">
+        <img src="assets/img/cone-maracuja.webp" width="1000" height="1250" alt="" loading="lazy" decoding="async">
+        <span class="cone__nome">Maracujá<small>com semente</small></span>
+      </button>
+    </div>
+
+    <div class="container sabores__lista">
+      <p class="sabores__nota">No pote de 800ml você leva até 4. O balcão muda com a estação; chama no WhatsApp pra saber o que saiu hoje.</p>
+      <div class="sabores__colunas" id="saboresGrade"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================== cardápio -->
+  <section class="cardapio" id="cardapio">
+    <div class="container">
+      <div class="cardapio__cabeca">
+        <h2 class="monumental">Cardápio</h2>
+        <p>Preços iguais aos da loja. Você monta o pedido aqui e finaliza com a gente no WhatsApp.<br>
+        <small>Entrega até 5 km por R$ 8,90 (mínimo R$ 25) · Retirada na loja sem taxa e sem mínimo <span class="demo-tag">a confirmar</span></small></p>
+      </div>
+      <div class="cardapio__abas" id="cardapioAbas" role="tablist" aria-label="Categorias do cardápio"></div>
+      <div id="cardapioPainel"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================== a casa (bloco escuro, colagem) -->
+  <section class="casa" id="sobre">
+    <div class="container casa__interno">
+      <div class="casa__colagem reveal" aria-hidden="true">
+        <!-- PLACEHOLDER: fotos da loja (fachada, balcão, carrinho) entram aqui -->
+        <img class="casa__foto casa__foto--1" src="assets/img/fundo-pistache-m.webp" width="900" height="502" alt="" loading="lazy" decoding="async">
+        <img class="casa__foto casa__foto--2" src="assets/img/fundo-morango-m.webp" width="900" height="508" alt="" loading="lazy" decoding="async">
+        <img class="casa__foto casa__foto--3" src="assets/img/fundo-amora-m.webp" width="900" height="508" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="casa__texto">
+        <h2 class="monumental monumental--claro">A casa</h2>
+        <!-- PLACEHOLDER: texto institucional a validar com o cliente -->
+        <p>Uma família, um balcão na Av. Barão de Mauá e a teimosia de fazer gelato de verdade em São Bernardo. Mesas na calçada, espaço pro seu pet e um cardápio que muda conforme a estação.</p>
+        <p>Se a sua festa precisa de gelato, a gente leva o carrinho até lá.</p>
+
+        <ol class="passos" aria-label="Como pedir">
+          <li><span>01</span><div><strong>Monte o pedido</strong>Escolha itens, sabores e caldas. O total aparece na hora.</div></li>
+          <li><span>02</span><div><strong>Envie no WhatsApp</strong>O pedido chega pronto na conversa. Você confirma com a gente.</div></li>
+          <li><span>03</span><div><strong>Receba ou retire</strong>Entrega gelada em até 5 km, ou retirada na loja sem taxa.</div></li>
+        </ol>
+        <a class="btn btn--dourado" href="#cardapio">Montar meu pedido</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== depoimentos -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="container">
+      <p class="depoimentos__cabeca">Quem já provou <span class="demo-tag" title="Depoimentos fictícios da demo">ilustrativo</span></p>
+      <div class="depoimentos__grade reveal" id="depoimentosGrade"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================== onde estamos -->
+  <section class="onde" id="contato">
+    <div class="container">
+      <h2 class="monumental">Onde estamos</h2>
+      <dl class="tabela">
+        <div class="tabela__linha"><dt>Endereço</dt><dd>Av. Barão de Mauá, 401 – Centro, São Bernardo do Campo – SP · CEP 09726-000<br><a href="https://www.google.com/maps/search/?api=1&query=Av.+Bar%C3%A3o+de+Mau%C3%A1%2C+401+-+S%C3%A3o+Bernardo+do+Campo+-+SP" target="_blank" rel="noopener">Abrir no Google Maps →</a></dd></div>
+        <div class="tabela__linha"><dt>Horário</dt><dd class="horario" id="horarioTabela"></dd></div>
+        <div class="tabela__linha"><dt>Pagamento <span class="demo-tag">parcial</span></dt><dd>Pix, débito, crédito (Visa, Mastercard, Elo, Amex, Hipercard) e dinheiro.</dd></div>
+        <div class="tabela__linha"><dt>WhatsApp</dt><dd><a href="https://wa.me/551125347781" target="_blank" rel="noopener">(11) 2534-7781</a></dd></div>
+        <div class="tabela__linha"><dt>Instagram</dt><dd><a href="https://www.instagram.com/gelateria.angelato/" target="_blank" rel="noopener">@gelateria.angelato</a></dd></div>
+        <div class="tabela__linha"><dt>E-mail <span class="demo-tag">fictício</span></dt><dd><a href="mailto:contato@gelateriaangelato.com.br">contato@gelateriaangelato.com.br</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========================================================== rodapé (bloco dourado, nome monumental) -->
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape__linha">
+      <ul class="rodape__links">
+        <li><a href="#cardapio-gelatos">Gelatos</a></li>
+        <li><a href="#cardapio-sobremesas">Sobremesas</a></li>
+        <li><a href="#cardapio-acai">Açaí</a></li>
+        <li><a href="#sobre">A casa</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <ul class="rodape__links">
+        <li><a href="https://www.instagram.com/gelateria.angelato/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://wa.me/551125347781" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.ifood.com.br/delivery/sao-bernardo-do-campo-sp/gelateria-angelato-centro/3ed09a91-4556-40b9-8d5f-98351cb94676" target="_blank" rel="noopener">iFood</a></li>
+      </ul>
+    </div>
+    <p class="rodape__nome" aria-hidden="true">Angelato</p>
+    <div class="rodape__base">
+      <span>© 2026 Gelateria Angelato · CNPJ 40.954.698/0001-07</span>
+      <span>Site de demonstração — dados marcados como <em>ilustrativo</em>/<em>fictício</em> serão substituídos antes do lançamento.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="zap-flutuante" href="https://wa.me/551125347781?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3-1.3-5-4.4-5.2-4.6-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7 0 1.1Z"/></svg>
+</a>
+
+<script src="assets/js/catalogo.js?v=2"></script>
+<script src="assets/js/carrinho-regras.js?v=1"></script>
+<script src="assets/js/site.js?v=22"></script>
+<script src="assets/js/carrinho.js?v=2"></script>
+</body>
+</html>

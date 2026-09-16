@@ -1,0 +1,14 @@
+# material bruto pesado (originais de imagem, prints, zips) fica fora do repo
+Imagens de Composicao site/
+Marca da Empresa/
+Referencias do Site/
+Rreferencia da Hero /
+Endereco, Pagamentos e Horarios/
+Fontes do site/
+material (do ifood)/
+
+.DS_Store
+.playwright-mcp/
+.impeccable/
+.claude/
+node_modules/
