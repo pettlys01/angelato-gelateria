@@ -234,12 +234,50 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .cone__nome { position: absolute; left: 18px; right: 18px; bottom: 16px; font-weight: 800; font-size: 26px; letter-spacing: -.02em; text-transform: uppercase; line-height: 1; text-shadow: 0 2px 10px rgba(0,0,0,.25); }
 .cone__nome small { display: block; font-weight: 400; font-size: 14px; text-transform: none; letter-spacing: 0; opacity: .9; margin-top: 4px; }
 @media (min-width: 1200px) { .cones { padding-inline: calc((100% - var(--container)) / 2); } .cone { flex-basis: calc((var(--container) - 56px) / 5); } }
-/* lista tipográfica de sabores, em colunas (sem chips) */
+/* sabores em acordeão: compacto no mobile, uma seção aberta por vez.
+   Corpo anima por grid-template-rows (0fr -> 1fr), sem JS medindo altura;
+   os chips entram com fade + leve subida, escalonados por --i. */
 .sabores__lista { margin-top: clamp(24px, 4vw, 40px); }
 .sabores__nota { color: var(--texto-suave); max-width: 60ch; font-size: 15px; margin-bottom: 28px; }
-.sabores__colunas { display: grid; gap: 26px 32px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-.sabores__colunas h3 { font-weight: 800; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--terracota); margin-bottom: 10px; }
-.sabores__colunas ul { list-style: none; padding: 0; margin: 0; font-size: 17px; line-height: 1.6; }
+.sabores__colunas { border-top: 1px solid rgba(34, 67, 113, .14); }
+.acordeao__item { border-bottom: 1px solid rgba(34, 67, 113, .14); }
+.acordeao__cabeca {
+  width: 100%; display: flex; align-items: center; gap: 14px; padding: 18px 2px;
+  background: none; border: 0; text-align: left; color: var(--texto); font: inherit;
+}
+.acordeao__cabeca::before {
+  content: ''; width: 12px; height: 12px; border-radius: 50%; flex: none;
+  background: var(--cor, var(--dourado));
+  box-shadow: 0 0 0 4px var(--creme-2);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cor, var(--dourado)) 22%, transparent);
+}
+.acordeao__nome { font-weight: 800; font-size: 17px; letter-spacing: -.01em; flex: 1; }
+.acordeao__conta {
+  font-size: 12.5px; font-weight: 700; color: var(--texto-suave); background: var(--creme-2);
+  border-radius: 999px; padding: 3px 10px; flex: none;
+}
+.acordeao__seta { width: 20px; height: 20px; flex: none; color: var(--terracota); transition: transform .35s var(--ease); }
+.acordeao__cabeca[aria-expanded="true"] .acordeao__seta { transform: rotate(180deg); }
+.acordeao__corpo { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
+.acordeao__corpo.aberto { grid-template-rows: 1fr; }
+.acordeao__chips {
+  overflow: hidden; min-height: 0; list-style: none; margin: 0; padding: 2px 2px 20px;
+  display: flex; flex-wrap: wrap; align-content: start; gap: 8px;
+}
+.acordeao__chips li {
+  font-size: 14.5px; font-weight: 600; padding: 7px 14px; border-radius: 999px; line-height: 1.2;
+  background: var(--creme-2);
+  background: color-mix(in srgb, var(--cor, var(--dourado)) 18%, white);
+  border: 1px solid color-mix(in srgb, var(--cor, var(--dourado)) 38%, white);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .35s var(--ease), transform .35s var(--ease);
+  transition-delay: calc(var(--i, 0) * 30ms);
+}
+.js .acordeao__corpo.aberto .acordeao__chips li { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .acordeao__corpo { transition: none; }
+  .acordeao__chips li { transition: none; opacity: 1; transform: none; }
+}
 
 /* ------------------------------------------------------------ cardápio (branco, lista) */
 .cardapio { background: var(--branco); padding: clamp(72px, 10vw, 140px) 0; }

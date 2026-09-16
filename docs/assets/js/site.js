@@ -70,12 +70,49 @@
     if (!porHash()) mostrar(C.categorias[0].id);
   }
 
+  /* Sabores em acordeão: cada grupo abre/fecha (só um por vez), com os
+     chips entrando em fade escalonado (--i). Primeiro grupo já vem aberto,
+     pra seção não parecer vazia à primeira vista. */
   function renderSabores() {
     var alvo = document.getElementById('saboresGrade');
     if (!alvo) return;
-    alvo.innerHTML = C.saboresGelato.map(function (g) {
-      return '<div><h3>' + esc(g.grupo) + '</h3><ul>' + g.sabores.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>';
+    alvo.innerHTML = C.saboresGelato.map(function (g, i) {
+      var aberto = i === 0;
+      var idBase = 'sabor-grupo-' + i;
+      var chips = g.sabores.map(function (x, k) {
+        return '<li style="--i:' + k + '">' + esc(x) + '</li>';
+      }).join('');
+      return (
+        '<div class="acordeao__item" style="--cor:' + esc(g.cor) + '">' +
+          '<h3 class="acordeao__titulo">' +
+            '<button class="acordeao__cabeca" type="button" aria-expanded="' + aberto + '" aria-controls="' + idBase + '" id="' + idBase + '-cabeca">' +
+              '<span class="acordeao__nome">' + esc(g.grupo) + '</span>' +
+              '<span class="acordeao__conta">' + g.sabores.length + '</span>' +
+              '<svg class="acordeao__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+            '</button>' +
+          '</h3>' +
+          '<div class="acordeao__corpo' + (aberto ? ' aberto' : '') + '" id="' + idBase + '" role="region" aria-labelledby="' + idBase + '-cabeca">' +
+            '<ul class="acordeao__chips">' + chips + '</ul>' +
+          '</div>' +
+        '</div>'
+      );
     }).join('');
+
+    /* Só um grupo aberto por vez: abrir um fecha os outros; clicar no que
+       já está aberto fecha (toggle). */
+    alvo.querySelectorAll('.acordeao__cabeca').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var jaAberto = btn.getAttribute('aria-expanded') === 'true';
+        alvo.querySelectorAll('.acordeao__cabeca').forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+          document.getElementById(b.getAttribute('aria-controls')).classList.remove('aberto');
+        });
+        if (!jaAberto) {
+          btn.setAttribute('aria-expanded', 'true');
+          document.getElementById(btn.getAttribute('aria-controls')).classList.add('aberto');
+        }
+      });
+    });
   }
 
   function renderDepoimentos() {
