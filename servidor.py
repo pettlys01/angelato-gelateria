@@ -3,7 +3,7 @@
 chdir explícito antes de importar http.server (o módulo lê os.getcwd() na
 definição dos argumentos)."""
 import os
-RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
+RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
 os.chdir(RAIZ)
 import http.server, socketserver
 

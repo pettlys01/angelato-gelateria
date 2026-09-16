@@ -5,7 +5,7 @@ Site estático, sem framework e sem build, no mesmo modelo do
 para o WhatsApp da loja.
 
 ```
-site/
+docs/
   index.html                 página única (hero scroll-driven → manifesto → sabores → cardápio em lista → a casa → depoimentos → onde estamos → footer)
   assets/css/estilo.css      sistema de design (custom properties em :root)
   assets/js/catalogo.js      FONTE ÚNICA de dados: itens, preços (centavos), opções, contato, horário
@@ -19,5 +19,5 @@ servidor.py                  python3 servidor.py → http://127.0.0.1:4189
 PENDENTES.md                 lista do que é placeholder e precisa de dado real
 ```
 
-Rodar local: `python3 servidor.py`. Testes: `node site/assets/js/carrinho-regras.test.js`.
+Rodar local: `python3 servidor.py`. Testes: `node docs/assets/js/carrinho-regras.test.js`.
 Ao alterar CSS/JS, incrementar o `?v=N` no `index.html`.

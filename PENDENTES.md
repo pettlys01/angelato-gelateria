@@ -1,8 +1,8 @@
 # PENDENTES — Gelateria Angelato (site V1 demo)
 
 Tudo abaixo é dado FICTÍCIO ou provisório da demonstração. Trocar pelo dado
-real antes do lançamento. Onde mexer: `site/assets/js/catalogo.js` (dados) e
-`site/index.html` (textos marcados com comentário `PLACEHOLDER`).
+real antes do lançamento. Onde mexer: `docs/assets/js/catalogo.js` (dados) e
+`docs/index.html` (textos marcados com comentário `PLACEHOLDER`).
 
 ## Bloqueadores (o carrinho depende disso)
 1. **Lista real dos sabores de gelato** (iFood diz "mais de 50", milk shake diz "76") — hoje são 24 fictícios em `catalogo.js → saboresGelato`.
@@ -21,7 +21,7 @@ real antes do lançamento. Onde mexer: `site/assets/js/catalogo.js` (dados) e
 12. **Bairro** — iFood diz "Centro", Instagram diz "Chácara Inglesa"; site usa Centro.
 
 ## Identidade
-13. **Logo em vetor (SVG) ou PNG grande** — a atual foi extraída de um print de 316 px (`site/assets/img/`). Serve para header/footer, não para impressão ou hero.
+13. **Logo em vetor (SVG) ou PNG grande** — a atual foi extraída de um print de 316 px (`docs/assets/img/`). Serve para header/footer, não para impressão ou hero.
 14. **Fonte de corpo de texto** — não foi fornecida; o site usa a pilha do sistema (`estilo.css → --f-corpo`).
 
 ## Infra
