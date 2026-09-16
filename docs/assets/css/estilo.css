@@ -221,7 +221,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .sabores__lead { color: var(--texto-suave); max-width: 40ch; font-size: 17px; margin: 0; }
 @media (min-width: 900px) { .sabores__cabeca { grid-template-columns: 1fr auto; } }
 /* faixa horizontal: cones transparentes sobre tiles na cor do sabor */
-.cones { display: flex; gap: 14px; padding: 8px 20px 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.cones { display: flex; gap: 14px; padding: 8px 24px 24px; scroll-padding-inline: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .cones::-webkit-scrollbar { display: none; }
 .cone {
   flex: 0 0 min(72vw, 300px); aspect-ratio: 3 / 4; scroll-snap-align: start; border: 0; padding: 0; border-radius: 22px; overflow: hidden;
